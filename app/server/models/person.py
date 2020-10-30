@@ -31,13 +31,13 @@ class PersonSchema(BaseModel):
 class UpdatePersonModel(BaseModel):
     givenNames: Optional[str]
     email: Optional[EmailStr]
-    lastName1: Optional[int]
+    lastName1: Optional[str]
     lastName2: Optional[str]
     position: Optional[str]
     company: Optional[str]
     phoneNumber: Optional[str]
     birthDate: Optional[str]
-    age: Optional[str]
+    age: Optional[int]
 
     class Config:
         schema_extra = {
