@@ -14,3 +14,4 @@ uvloop==0.14.0
 websockets==8.1
 python-decouple==3.3
 pandas==0.25.2
+aiofiles==0.4.0
