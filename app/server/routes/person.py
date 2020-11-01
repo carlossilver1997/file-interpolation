@@ -79,6 +79,6 @@ async def get_person_data(id, ext):
     person = await retrieve_person(id)
     if person:
         read_and_interpolate_file('./carta_agradecimiento.txt', person, ext)
-        cwd = os.getcwd()  # Get the current working directory (cwd)
+        cwd = os.getcwd()
         return FileResponse("{}/static/{}.{}".format(cwd,id,ext))
     return ErrorResponseModel("An error occurred.", 404, "Person doesn't exist.")

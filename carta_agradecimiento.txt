@@ -3,7 +3,9 @@ REMITENTE [NAME] [LAST_NAME_1] [LAST_NAME_2]
 
 Para [COMPANY]:
 
-Por este medio queremos expresarle nuestro mayor agradecimiento por la oportunidad de poder realizar mis estadias y poder participar en grandes proyectos y poder desempeñarme en el cargo de [POSITION].
+Por este medio queremos expresarle nuestro mayor agradecimiento por la oportunidad
+de poder realizar mis estadias, asi como poder participar en grandes proyectos
+y poder desempeñarme en el cargo de [POSITION].
 
 Muchas gracias, dejo mi información, en caso de que la llegue a requerir:
 
