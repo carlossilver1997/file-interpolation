@@ -1,7 +1,7 @@
-from fastapi import APIRouter, Body
+from fastapi import APIRouter, Body, BackgroundTasks
 from fastapi.encoders import jsonable_encoder
 from typing import Optional
-from files import read_and_interpolate_file
+from files import read_and_interpolate_file, sendEmail
 from starlette.responses import FileResponse
 import os
 
@@ -74,11 +74,20 @@ async def delete_person_data(id: str):
     )
 
 
-@router.get("/write-files/{id}", response_description="Generate file in pdf, txt, or word")
+@router.post("/write-files/{id}", response_description="Generate file in pdf, txt, or word")
 async def get_person_data(id, ext):
     person = await retrieve_person(id)
     if person:
         read_and_interpolate_file('./carta_agradecimiento.txt', person, ext)
         cwd = os.getcwd()
         return FileResponse("{}/static/{}.{}".format(cwd,id,ext))
+    return ErrorResponseModel("An error occurred.", 404, "Person doesn't exist.")
+
+@router.post("/send-email/{id}", response_description="Send email")
+async def get_person_data(background_tasks: BackgroundTasks,id):
+    person = await retrieve_person(id)
+    if person:
+        sendEmail(background_tasks,'./carta_agradecimiento.txt',person)
+        return ResponseModel(person, "Person data retrieved successfully")
+
     return ErrorResponseModel("An error occurred.", 404, "Person doesn't exist.")

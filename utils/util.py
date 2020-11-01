@@ -1,4 +1,6 @@
 from datetime import date
+import smtplib
+
 def calculateAge(birthDate):
     dia, mes, anio = [int(v) for v in birthDate.split("/")] 
     born = date(anio, mes, dia)

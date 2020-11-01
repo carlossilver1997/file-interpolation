@@ -6,3 +6,4 @@ app/server/__pycache__
 app/server/models/__pycache__
 app/server/routes/__pycache__
 static
+utils/__pycache__
