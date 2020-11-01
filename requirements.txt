@@ -16,3 +16,5 @@ python-decouple==3.3
 pandas==0.25.2
 aiofiles==0.4.0
 fpdf=1.7.2
+lxml=4.6.1
+python-docx=0.8.10
