@@ -1,0 +1,16 @@
+Carta agradecimiento
+REMITENTE [NAME] [LAST_NAME_1] [LAST_NAME_2]
+
+Para [COMPANY]:
+
+Por este medio queremos expresarle nuestro mayor agradecimiento por la oportunidad de poder realizar mis estadias y poder participar en grandes proyectos y poder desempeñarme en el cargo de [POSITION].
+
+Muchas gracias, dejo mi información, en caso de que la llegue a requerir:
+
+Nombre: [NAME] [LAST_NAME_1] [LAST_NAME_2]
+Fecha de Nacimineto: [BIRTH_DATE] ([AGE] años)
+Domicilio: [ADDRESS].
+Telefóno: [PHONE]
+Correo electrónico: [EMAIL]
+
+FIRMA

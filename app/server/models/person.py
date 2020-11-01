@@ -9,8 +9,8 @@ class PersonSchema(BaseModel):
     company: str = Field(...)
     phoneNumber: str = Field(...)
     birthDate: str = Field(...)
+    address: str = Field(...)
     email: EmailStr = Field(...)
-    age: int = Field(None, gt=0, lt=110)
 
 
     class Config:
@@ -24,7 +24,7 @@ class PersonSchema(BaseModel):
                 "phoneNumber": "3309876512",
                 "birthDate": "18/09/1997",
                 "email": "carloscode97@gmail.com",
-                "age": "23"
+                "address": "calle,num,colonia,ciudad,estado,CP",
             }
         }
         
@@ -36,8 +36,8 @@ class UpdatePersonModel(BaseModel):
     position: Optional[str]
     company: Optional[str]
     phoneNumber: Optional[str]
+    address: str = Field(...)
     birthDate: Optional[str]
-    age: Optional[int]
 
     class Config:
         schema_extra = {
@@ -50,14 +50,14 @@ class UpdatePersonModel(BaseModel):
                 "phoneNumber": "3309876512",
                 "birthDate": "18/09/1997",
                 "email": "carloscode97@gmail.com",
-                "age": "23"
+                "address": "calle,num,colonia,ciudad,estado,CP",
             }
         }
 
 
 def ResponseModel(data, message):
     return {
-        "data": [data],
+        "data": data,
         "code": 200,
         "message": message,
     }

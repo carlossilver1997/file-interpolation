@@ -1,6 +1,7 @@
 import motor.motor_asyncio
 from bson.objectid import ObjectId
 from decouple import config
+from utils.util import calculateAge
 
 MONGO_DETAILS = config('MONGO_URI')
 
@@ -21,7 +22,8 @@ def person_helper(person) -> dict:
         "company": person["company"],
         "phoneNumber": person["phoneNumber"],
         "birthDate": person["birthDate"],
-        "email": person["email"],
+        "address": person["address"],
+        "age": calculateAge(person["birthDate"]),
     }
 
 # Retrieve all people present in the database

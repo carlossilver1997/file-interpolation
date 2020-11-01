@@ -1,5 +1,9 @@
 from fastapi import APIRouter, Body
 from fastapi.encoders import jsonable_encoder
+from typing import Optional
+from files import read_and_interpolate_file
+from starlette.responses import FileResponse
+import os
 
 from app.server.database import (
     add_person,
@@ -68,3 +72,13 @@ async def delete_person_data(id: str):
     return ErrorResponseModel(
         "An error occurred", 404, "Person with id {0} doesn't exist".format(id)
     )
+
+
+@router.get("/write-files/{id}", response_description="Generate file in pdf, txt, or word")
+async def get_person_data(id, ext):
+    person = await retrieve_person(id)
+    if person:
+        read_and_interpolate_file('./carta_agradecimiento.txt', person, ext)
+        cwd = os.getcwd()  # Get the current working directory (cwd)
+        return FileResponse("{}/static/{}.{}".format(cwd,id,ext))
+    return ErrorResponseModel("An error occurred.", 404, "Person doesn't exist.")
