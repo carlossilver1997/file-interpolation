@@ -91,3 +91,15 @@ async def get_person_data(background_tasks: BackgroundTasks,id):
         return ResponseModel(person, "Person data retrieved successfully")
 
     return ErrorResponseModel("An error occurred.", 404, "Person doesn't exist.")
+
+@router.get("/write-files/all", response_description="Generate documents for each person")
+async def get_people():
+    people = await retrieve_people()
+    cwd = os.getcwd()
+    if people:
+        files = []
+        for person in people:
+            read_and_interpolate_file('./carta_agradecimiento.txt', person, 'txt')
+            files.append(FileResponse("{}/static/{}.{}".format(cwd,person["id"],'txt')))
+        return files
+    return ResponseModel(people, "Empty list returned")

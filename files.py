@@ -89,7 +89,7 @@ def sendEmail(background_tasks, route, person):
         message = MIMEMultipart()
         message['From'] = sender_address
         message['To'] = receiver_address
-        message['Subject'] = 'A test mail sent by Python. It has an attachment.'
+        message['Subject'] = 'Carta agradecimiento en pdf, docx, txt'
         #The subject line
         #The body and the attachments for the mail
         for f in docs:
